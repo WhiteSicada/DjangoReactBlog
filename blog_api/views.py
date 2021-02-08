@@ -1,3 +1,13 @@
-from django.shortcuts import render
+from blog.models import *
+from rest_framework import generics
+from .serializers import *
 
-# Create your views here.
+class PostList(generics.ListCreateAPIView):
+  # going to return all the posts with the status published
+  queryset = Post.postobjects.all()
+  serializer_class = PostSerializer
+
+
+class PostDetail(generics.RetrieveDestroyAPIView):
+  queryset = Post.objects.all()
+  serializer_class = PostSerializer

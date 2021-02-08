@@ -32,7 +32,7 @@ class Post(models.Model):
   published = models.DateTimeField(default=timezone.now)
   status = models.CharField(max_length=10, choices=options , default='published')
 
-  objects= models.Manager # Default manager
+  objects= models.Manager() # Default manager
   postobjects = PostObjects() # custom manager
 
   class Meta:
